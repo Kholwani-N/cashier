@@ -21,7 +21,7 @@ defmodule Cashier.POS do
   Get current basket for a session.
   """
   def items(session_id) do
-    Cart.items(session_id)
+    Cashier.Cart.items(session_id)
   end
 
   @doc """
@@ -35,7 +35,7 @@ defmodule Cashier.POS do
   Close session and clear cart.
   """
   def close(session_id) do
-    Cart.clear(session_id)
+    Cashier.Cart.clear(session_id)
     :ok
   end
 end

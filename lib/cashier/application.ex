@@ -5,7 +5,8 @@ defmodule Cashier.Application do
     children = [
       Cashier.Infrastructure.ETSTable,
       {Registry, keys: :unique, name: Cashier.CartRegistry},
-      Cashier.Cart.Supervisor
+      Cashier.Cart.Supervisor,
+      {Plug.Cowboy, scheme: :http, plug: Cashier.Web.Router, options: [port: 4000]}
     ]
 
     Supervisor.start_link(children, strategy: :one_for_one)

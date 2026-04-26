@@ -22,6 +22,7 @@ defmodule Cashier.MixProject do
     [
       {:decimal, "~> 2.1"},
       {:jason, "~> 1.4", only: [:dev, :test]},
+      {:plug_cowboy, "~> 2.6"},
       {:uuid, "~> 1.1", hex: :uuid}
     ]
   end
