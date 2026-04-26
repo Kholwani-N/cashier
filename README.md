@@ -31,7 +31,7 @@ Cashier.POS.scan(c, "SR1")
 Cashier.POS.total(c)
 ```
 
-#Usage (Rest API)
+# Usage (Rest API)
 ```
 #Create session
 curl -X POST localhost:4000/sessions
