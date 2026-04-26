@@ -1,11 +1,6 @@
 # Cashier
 
-**TODO: Add description**
-
 ## Installation
-
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `cashier` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
