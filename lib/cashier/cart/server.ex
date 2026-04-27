@@ -2,7 +2,7 @@ defmodule Cashier.Cart.Server do
   use GenServer
 
   alias Cashier.Cart.Store
-  alias Cashier.Catalog
+  alias Cashier.Catalogue
 
   def start_link(cart_id) do
     GenServer.start_link(__MODULE__, cart_id, name: via(cart_id))
@@ -23,7 +23,7 @@ defmodule Cashier.Cart.Server do
   def init(cart_id), do: {:ok, cart_id}
 
   def handle_call({:add_item, code, qty}, _from, cart_id) do
-    if Catalog.exists?(code) do
+    if Catalogue.exists?(code) do
       cart =
         Store.update(cart_id, fn cart ->
           Map.update(cart, code, qty, &(&1 + qty))

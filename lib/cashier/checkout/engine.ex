@@ -1,6 +1,6 @@
 defmodule Cashier.Checkout.Engine do
   alias Decimal, as: D
-  alias Cashier.Catalog
+  alias Cashier.Catalogue
 
   @rules [
     Cashier.Rules.Tea,
@@ -11,7 +11,7 @@ defmodule Cashier.Checkout.Engine do
   def total(cart) do
     subtotal =
       Enum.reduce(cart, D.new("0"), fn {code, qty}, acc ->
-        product = Catalog.get!(code)
+        product = Catalogue.get!(code)
         D.add(acc, D.mult(product.price, D.new(qty)))
       end)
 

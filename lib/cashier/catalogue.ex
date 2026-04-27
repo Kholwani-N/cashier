@@ -1,4 +1,4 @@
-defmodule Cashier.Catalog do
+defmodule Cashier.Catalogue do
   alias Decimal, as: D
 
   @products %{
