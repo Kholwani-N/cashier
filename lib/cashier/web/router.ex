@@ -1,7 +1,7 @@
 defmodule Cashier.Web.Router do
   use Plug.Router
 
-  plug Plug.Logger
+  plug Plug.Logger, log: :info
   plug :match
   plug Plug.Parsers, parsers: [:json], json_decoder: Jason
   plug :dispatch

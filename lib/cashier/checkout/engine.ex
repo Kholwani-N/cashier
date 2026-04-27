@@ -3,8 +3,8 @@ defmodule Cashier.Checkout.Engine do
   alias Cashier.Catalog
 
   @rules [
-    Cashier.Rules.BOGO,
-    Cashier.Rules.StrawberryBulk,
+    Cashier.Rules.Tea,
+    Cashier.Rules.Strawberries,
     Cashier.Rules.Coffee
   ]
 

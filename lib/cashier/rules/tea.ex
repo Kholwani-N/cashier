@@ -1,4 +1,4 @@
-defmodule Cashier.Rules.BOGO do
+defmodule Cashier.Rules.Tea do
   alias Decimal, as: D
   @behaviour Cashier.Checkout.PricingRule
 

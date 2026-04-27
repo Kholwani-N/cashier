@@ -23,7 +23,8 @@ defmodule Cashier.MixProject do
       {:decimal, "~> 2.1"},
       {:jason, "~> 1.4", only: [:dev, :test]},
       {:plug_cowboy, "~> 2.6"},
-      {:uuid, "~> 1.1", hex: :uuid}
+      {:uuid, "~> 1.1", hex: :uuid},
+      {:logger_file_backend, "~> 0.0.13"}
     ]
   end
 end

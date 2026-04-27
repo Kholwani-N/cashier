@@ -1,4 +1,4 @@
-defmodule Cashier.Rules.StrawberryBulk do
+defmodule Cashier.Rules.Strawberries do
   alias Decimal, as: D
   @behaviour Cashier.Checkout.PricingRule
 
