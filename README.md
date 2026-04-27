@@ -31,7 +31,7 @@ Cashier.POS.scan(c, "SR1")
 Cashier.POS.total(c) |> Decimal.to_string()
 ```
 
-# Usage (Rest API)
+# Usage (REST API)
 ```
 ## API Spec
 POST   /sessions                    → start session
@@ -61,4 +61,9 @@ curl -X GET localhost:4000/sessions/f8759d63-49c5-4c32-b92d-64ba2b6d5aef
 
 # Close session
 curl -X DELETE localhost:4000/sessions/f8759d63-49c5-4c32-b92d-64ba2b6d5aef
+```
+
+# Requirements tests
+```
+test/cashier/acceptance/pricing_test.exs
 ```
