@@ -22,6 +22,16 @@ defmodule Cashier.POS do
     Cart.add_item(session_id, code, qty)
   end
 
+  ## Remove Item
+  def remove(session_id, code) do
+    Logger.info("remove_item",
+      session_id: session_id,
+      product: code
+    )
+
+    Cart.remove_item(session_id, code)
+  end
+
   ## View Items in cart
   def items(session_id) do
     Logger.info("view_cart", session_id: session_id)

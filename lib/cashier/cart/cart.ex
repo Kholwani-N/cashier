@@ -13,6 +13,11 @@ defmodule Cashier.Cart do
     Server.add_item(cart_id, code, qty)
   end
 
+  def remove_item(cart_id, code) do
+  ensure_started(cart_id)
+  Server.remove_item(cart_id, code)
+  end
+
   def items(cart_id) do
     ensure_started(cart_id)
     Server.items(cart_id)

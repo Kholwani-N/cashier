@@ -12,6 +12,10 @@ defmodule Cashier.Cart.Server do
     GenServer.call(via(cart_id), {:add_item, code, qty})
   end
 
+  def remove_item(cart_id, code) do
+    GenServer.call(via(cart_id), {:remove_item, code})
+  end
+
   def items(cart_id) do
     GenServer.call(via(cart_id), :items)
   end
@@ -34,6 +38,25 @@ defmodule Cashier.Cart.Server do
       {:reply, {:error, :invalid_product}, cart_id}
     end
   end
+
+  def handle_call({:remove_item, code}, _from, cart_id) do
+  if Catalogue.exists?(code) do
+    cart =
+      Store.update(cart_id, fn cart ->
+        case Map.get(cart, code) do
+          nil ->
+            cart
+          1 ->
+            Map.delete(cart, code)
+          current ->
+            Map.put(cart, code, current - 1)
+        end
+      end)
+    {:reply, {:ok, cart}, cart_id}
+  else
+    {:reply, {:error, :invalid_product}, cart_id}
+  end
+end
 
   def handle_call(:items, _from, cart_id) do
     {:reply, Store.get(cart_id), cart_id}

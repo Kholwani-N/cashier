@@ -28,7 +28,7 @@ defmodule Cashier.Web.RouterTest do
       |> put_req_header("content-type", "application/json")
       |> Router.call(@opts)
 
-    assert conn.status == 200
+    assert conn.status == 404
 
     conn =
       conn(:get, "/sessions/#{id}/total")

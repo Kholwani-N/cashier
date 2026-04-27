@@ -18,13 +18,26 @@ defmodule Cashier.Web.Router do
   end
 
   ## Add item
-  post "/sessions/:id/items" do
+  post "/sessions/:id/items/add" do
     %{"code" => code} = conn.body_params
     qty = Map.get(conn.body_params, "qty", 1)
+    case Cashier.POS.scan(id, code, qty) do
+      {:ok, _cart} ->
+        send_json(conn, 200, %{status: "ok"})
+      {:error, :invalid_product} ->
+        send_resp(conn, 400, Jason.encode!(%{error: "invalid_product"}))
+    end
+  end
 
-    Cashier.POS.scan(id, code, qty)
-
-    send_json(conn, 200, %{status: "ok"})
+  ## Remove item
+  delete "/sessions/:id/items/remove" do
+    %{"code" => code} = conn.body_params
+    case Cashier.POS.remove(id, code) do
+      {:ok, _cart} ->
+        send_json(conn, 200, %{status: "ok"})
+      {:error, :invalid_product} ->
+        send_resp(conn, 400, Jason.encode!(%{error: "invalid_product"}))
+    end
   end
 
   ## Get cart
