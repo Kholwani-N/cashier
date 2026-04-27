@@ -2,22 +2,31 @@
 
 # Usage (iex terminal)
 ```
+# Start a session (cart a)
 {:ok, a} = Cashier.POS.start_session()
+# Add / Scan items
 Cashier.POS.scan(a, "GR1")
 Cashier.POS.scan(a, "GR1")
 Cashier.POS.scan(a, "SR1")
+# Compute total
 Cashier.POS.total(a)
 
+# Start a session (cart b)
 {:ok, b} = Cashier.POS.start_session()
+# Add / Scan items
 Cashier.POS.scan(b, "CF1")
 Cashier.POS.scan(b, "CF1")
 Cashier.POS.scan(b, "CF1")
+# Compute total
 Cashier.POS.total(b)
 
+# Start a session (cart c)
 {:ok, c} = Cashier.POS.start_session()
+# Add / Scan items
 Cashier.POS.scan(c, "SR1")
 Cashier.POS.scan(c, "SR1")
 Cashier.POS.scan(c, "SR1")
+# Compute total
 Cashier.POS.total(c)
 ```
 
@@ -26,17 +35,17 @@ Cashier.POS.total(c)
 #Create session
 curl -X POST localhost:4000/sessions
 
-#Add items
-curl -X POST localhost:4000/sessions/abc-123/items \
+# Add items
+curl -X POST localhost:4000/sessions/f8759d63-49c5-4c32-b92d-64ba2b6d5aef/items \
   -H "Content-Type: application/json" \
   -d '{"code":"GR1"}'
 
-#View cart
-curl localhost:4000/sessions/abc-123
+# View cart
+curl localhost:4000/sessions/f8759d63-49c5-4c32-b92d-64ba2b6d5aef
 
-#Checkout
-curl localhost:4000/sessions/abc-123/total
+# Checkout
+curl localhost:4000/sessions/f8759d63-49c5-4c32-b92d-64ba2b6d5aef/total
 
-#Close session
-curl -X DELETE localhost:4000/sessions/abc-123
+# Close session
+curl -X DELETE localhost:4000/sessions/f8759d63-49c5-4c32-b92d-64ba2b6d5aef
 ```
