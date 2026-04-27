@@ -1,15 +1,5 @@
 # Cashier
 
-## Installation
-
-```elixir
-def deps do
-  [
-    {:cashier, "~> 0.1.0"}
-  ]
-end
-```
-
 # Usage (iex terminal)
 ```
 {:ok, a} = Cashier.POS.start_session()
@@ -50,8 +40,3 @@ curl localhost:4000/sessions/abc-123/total
 #Close session
 curl -X DELETE localhost:4000/sessions/abc-123
 ```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/cashier>.
-
